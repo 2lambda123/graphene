@@ -55,7 +55,7 @@ def get_docs_version(version=None):
         - Check if the version is final.
         - If not, return "dev".
         - If yes, return the version number in string format."""
-    
+
     version = get_complete_version(version)
     if version[3] != "final":
         return "dev"
@@ -75,7 +75,8 @@ def get_git_changeset():
             "git log --pretty=format:%ct --quiet -1 HEAD",
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
-            shell=False, cwd=repo_dir,
+            shell=False,
+            cwd=repo_dir,
             universal_newlines=True,
         )
         timestamp = git_log.communicate()[0]

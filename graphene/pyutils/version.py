@@ -48,6 +48,14 @@ def get_complete_version(version=None):
 
 
 def get_docs_version(version=None):
+    """Returns:
+        - str: The version number in string format.
+    Processing Logic:
+        - Get the complete version.
+        - Check if the version is final.
+        - If not, return "dev".
+        - If yes, return the version number in string format."""
+    
     version = get_complete_version(version)
     if version[3] != "final":
         return "dev"

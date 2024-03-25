@@ -18,7 +18,7 @@ class GrapheneGraphQLType:
 
     def __init__(self, *args, **kwargs):
         self.graphene_type = kwargs.pop("graphene_type")
-        super(GrapheneGraphQLType, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
     def __copy__(self):
         result = GrapheneGraphQLType(graphene_type=self.graphene_type)
@@ -55,7 +55,7 @@ class GrapheneEnumType(GrapheneGraphQLType, GraphQLEnumType):
                     value = enum[value]
                 except KeyError:
                     pass
-        return super(GrapheneEnumType, self).serialize(value)
+        return super().serialize(value)
 
 
 class GrapheneInputObjectType(GrapheneGraphQLType, GraphQLInputObjectType):

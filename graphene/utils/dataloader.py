@@ -18,7 +18,7 @@ def iscoroutinefunctionorpartial(fn):
     return iscoroutinefunction(fn.func if isinstance(fn, partial) else fn)
 
 
-class DataLoader(object):
+class DataLoader:
     batch = True
     max_batch_size = None  # type: int
     cache = True

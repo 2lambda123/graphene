@@ -36,9 +36,11 @@ class ObjectTypeMeta(BaseTypeMeta):
                     key,
                     "typing.Any",
                     field(
-                        default=field_value.default_value
-                        if isinstance(field_value, Field)
-                        else None
+                        default=(
+                            field_value.default_value
+                            if isinstance(field_value, Field)
+                            else None
+                        )
                     ),
                 )
                 for key, field_value in base_cls._meta.fields.items()
@@ -156,6 +158,6 @@ class ObjectType(BaseType, metaclass=ObjectTypeMeta):
         _meta.possible_types = possible_types
         _meta.default_resolver = default_resolver
 
-        super(ObjectType, cls).__init_subclass_with_meta__(_meta=_meta, **options)
+        super().__init_subclass_with_meta__(_meta=_meta, **options)
 
     is_type_of = None

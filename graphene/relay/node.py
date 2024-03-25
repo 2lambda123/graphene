@@ -30,7 +30,7 @@ class GlobalID(Field):
         *args,
         **kwargs,
     ):
-        super(GlobalID, self).__init__(
+        super().__init__(
             global_id_type.graphene_type, required=required, *args, **kwargs
         )
         self.node = node or Node
@@ -58,7 +58,7 @@ class NodeField(Field):
         self.field_type = type_
         global_id_type = node._meta.global_id_type
 
-        super(NodeField, self).__init__(
+        super().__init__(
             # If we don't specify a type, the field type will be the node interface
             type_ or node,
             id=global_id_type.graphene_type(
@@ -87,7 +87,7 @@ class AbstractNode(Interface):
                 cls, global_id_type=global_id_type, description="The ID of the object"
             )
         }
-        super(AbstractNode, cls).__init_subclass_with_meta__(_meta=_meta, **options)
+        super().__init_subclass_with_meta__(_meta=_meta, **options)
 
     @classmethod
     def resolve_global_id(cls, info, global_id):

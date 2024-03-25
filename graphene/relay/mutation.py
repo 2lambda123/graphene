@@ -46,7 +46,7 @@ class ClientIDMutation(Mutation):
         if not name:
             name = f"{base_name}Payload"
 
-        super(ClientIDMutation, cls).__init_subclass_with_meta__(
+        super().__init_subclass_with_meta__(
             output=None, arguments=arguments, name=name, **options
         )
         cls._meta.fields["client_mutation_id"] = Field(String, name="clientMutationId")

@@ -6,7 +6,7 @@ from graphene.relay.mutation import ClientIDMutation
 from graphene.test import Client
 
 
-class SharedFields(object):
+class SharedFields:
     shared = String()
 
 

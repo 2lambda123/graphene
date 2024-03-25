@@ -58,7 +58,7 @@ class Union(UnmountedType, BaseType):
 
         _meta = UnionOptions(cls)
         _meta.types = types
-        super(Union, cls).__init_subclass_with_meta__(_meta=_meta, **options)
+        super().__init_subclass_with_meta__(_meta=_meta, **options)
 
     @classmethod
     def get_type(cls):

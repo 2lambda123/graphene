@@ -1,5 +1,3 @@
-from __future__ import unicode_literals
-
 import datetime
 import os
 import subprocess
@@ -67,7 +65,8 @@ def get_git_changeset():
             "git log --pretty=format:%ct --quiet -1 HEAD",
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
-            shell=False, cwd=repo_dir,
+            shell=False,
+            cwd=repo_dir,
             universal_newlines=True,
         )
         timestamp = git_log.communicate()[0]

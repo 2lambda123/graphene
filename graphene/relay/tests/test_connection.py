@@ -75,7 +75,7 @@ def test_connection_extra_abstract_fields():
                 ),
             }
 
-            return super(ConnectionWithNodes, cls).__init_subclass_with_meta__(
+            return super().__init_subclass_with_meta__(
                 node=node, name=name, _meta=_meta, **options
             )
 
@@ -137,7 +137,7 @@ def test_connection_override_fields():
                 ),
             }
 
-            return super(ConnectionWithNodes, cls).__init_subclass_with_meta__(
+            return super().__init_subclass_with_meta__(
                 node=node, name=name, _meta=_meta, **options
             )
 

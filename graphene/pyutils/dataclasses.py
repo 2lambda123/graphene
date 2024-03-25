@@ -166,6 +166,7 @@ class _HAS_DEFAULT_FACTORY_CLASS:
 
 _HAS_DEFAULT_FACTORY = _HAS_DEFAULT_FACTORY_CLASS()
 
+
 # A sentinel object to detect if a parameter is supplied or not.  Use
 # a class to give it a better repr.
 class _MISSING_TYPE:
@@ -177,6 +178,7 @@ MISSING = _MISSING_TYPE()
 # Since most per-field metadata will be unused, create an empty
 # read-only proxy that can be shared among all fields.
 _EMPTY_METADATA = types.MappingProxyType({})
+
 
 # Markers for the various kinds of fields and pseudo-fields.
 class _FIELD_BASE:

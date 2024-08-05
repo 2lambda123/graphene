@@ -78,7 +78,7 @@ class Field(MountedType):
         default_value=None,
         **extra_args,
     ):
-        super(Field, self).__init__(_creation_counter=_creation_counter)
+        super().__init__(_creation_counter=_creation_counter)
         assert not args or isinstance(
             args, Mapping
         ), f'Arguments in a field have to be a mapping, received "{args}".'

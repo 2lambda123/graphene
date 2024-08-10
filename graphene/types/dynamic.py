@@ -11,7 +11,7 @@ class Dynamic(MountedType):
     """
 
     def __init__(self, type_, with_schema=False, _creation_counter=None):
-        super(Dynamic, self).__init__(_creation_counter=_creation_counter)
+        super().__init__(_creation_counter=_creation_counter)
         assert inspect.isfunction(type_) or isinstance(type_, partial)
         self.type = type_
         self.with_schema = with_schema

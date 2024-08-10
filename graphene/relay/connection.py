@@ -126,9 +126,7 @@ class Connection(ObjectType):
                 description="Contains the nodes in this connection.",
             )
 
-        return super(Connection, cls).__init_subclass_with_meta__(
-            _meta=_meta, **options
-        )
+        return super().__init_subclass_with_meta__(_meta=_meta, **options)
 
 
 # noinspection PyPep8Naming
@@ -143,11 +141,11 @@ class IterableConnectionField(Field):
         kwargs.setdefault("after", String())
         kwargs.setdefault("first", Int())
         kwargs.setdefault("last", Int())
-        super(IterableConnectionField, self).__init__(type_, *args, **kwargs)
+        super().__init__(type_, *args, **kwargs)
 
     @property
     def type(self):
-        type_ = super(IterableConnectionField, self).type
+        type_ = super().type
         connection_type = type_
         if isinstance(type_, NonNull):
             connection_type = type_.of_type
@@ -193,7 +191,7 @@ class IterableConnectionField(Field):
         return maybe_thenable(resolved, on_resolve)
 
     def wrap_resolve(self, parent_resolver):
-        resolver = super(IterableConnectionField, self).wrap_resolve(parent_resolver)
+        resolver = super().wrap_resolve(parent_resolver)
         return partial(self.connection_resolver, resolver, self.type)
 
 
